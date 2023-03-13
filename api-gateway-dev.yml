@@ -1,0 +1,15 @@
+server:
+  port: 8080
+  
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: moviesRoute #Identificando la ruta del service de producto
+          uri: http://localhost:8081/ #URL donde se hará el redirect segun el predicate definido
+          predicates: #RReglas de análisis de una request
+            - Path=/movies/**
+        - id: billsRoute #Identificando la ruta del service de producto
+          uri: http://localhost:8082/ #URL donde se hará el redirect segun el predicate definido
+          predicates: #RReglas de análisis de una request
+            - Path=/bills/**
