@@ -5,7 +5,7 @@ spring:
   cloud:
     gateway:
       default-filters:
-        - TokenRelay
+        - name: TokenRelay
       routes:
         - id: moviesRoute #Identificando la ruta del service de producto
           uri: http://localhost:8081/ #URL donde se hará el redirect segun el predicate definido
